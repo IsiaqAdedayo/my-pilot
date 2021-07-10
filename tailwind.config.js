@@ -3,7 +3,18 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      margin:{
+        "md": '-336px',
+        "mlc": "36%",
+      },
+      inset:{
+        "cus": "85%"
+      },
+      height:{
+        "cusHe": "83.3vh"
+      }
+    },
   },
   variants: {
     extend: {},

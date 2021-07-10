@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  
+}
+
+
+@font-face {
+    font-family: 'OpenSansExtraBold';
+    src: url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.eot');
+    src: url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
+    /* url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.woff2') format('woff2'), */
+    url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.woff') format('woff'),
+    url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../public/fonts/opensans/OpenSans-Bold-webfont.eot');
+    src: url('../public/fonts/opensans/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    /* url('../public/fonts/opensans/OpenSans-Bold-webfont.woff2') format('woff2'), */
+    url('../public/fonts/opensans/OpenSans-Bold-webfont.woff') format('woff'),
+    url('../public/fonts/opensans/OpenSans-Bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
