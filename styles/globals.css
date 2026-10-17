@@ -2,31 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-  
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-flame text-white;
+  }
 }
 
+@layer components {
+  /* Editorial serif headings — Instrument Serif carries its own contrast,
+     no need for a synthetic thin weight. Slightly relaxed leading so
+     multi-line italic descenders never kiss the next line. */
+  .display {
+    @apply font-serif font-normal leading-[1.04] tracking-[-0.015em];
+  }
 
-@font-face {
-    font-family: 'OpenSansExtraBold';
-    src: url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.eot');
-    src: url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
-    /* url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.woff2') format('woff2'), */
-    url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.woff') format('woff'),
-    url('../public/fonts/opensans/OpenSans-ExtraBold-webfont.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  /* Italic serif section labels — the magazine "eyebrow" */
+  .eyebrow {
+    @apply mb-5 font-serif text-sm italic uppercase tracking-[0.24em] text-ink/60;
+  }
+
+  /* Even, magazine-style line breaks on multi-line headlines */
+  .balance {
+    text-wrap: balance;
+  }
+
+  /* Unified page gutter: every section lives in a .shell so horizontal
+     margins are identical on large screens */
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 md:px-8;
+  }
+
+  /* Small utility "line pair" used across the design */
+  .rule-pair {
+    @apply flex w-full;
+  }
+  .rule-pair > span:first-child {
+    @apply h-px bg-ink w-1/2;
+  }
+  .rule-pair > span:last-child {
+    @apply h-px bg-flame w-1/2;
+  }
 }
 
-@font-face {
-    font-family: 'OpenSansBold';
-    src: url('../public/fonts/opensans/OpenSans-Bold-webfont.eot');
-    src: url('../public/fonts/opensans/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-    /* url('../public/fonts/opensans/OpenSans-Bold-webfont.woff2') format('woff2'), */
-    url('../public/fonts/opensans/OpenSans-Bold-webfont.woff') format('woff'),
-    url('../public/fonts/opensans/OpenSans-Bold-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+/* Reveal-on-scroll: elements start hidden and .is-visible animates them in.
+   JS in Reveal.jsx adds .is-visible when the element enters the viewport. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Gentle vertical bob for the hero image + scroll hint while pinned */
+.float-y {
+  animation: floatY 9s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.scroll-hint {
+  animation: hintPulse 2.6s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .float-y,
+  .scroll-hint {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Image hover treatment used on article + case links */
+.zoom-img img {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.zoom-img:hover img {
+  transform: scale(1.045);
 }

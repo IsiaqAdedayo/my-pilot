@@ -1,119 +1,105 @@
-import Image from 'next/image'
-import { useState } from "react";
-import ScrollAnimation from 'react-animate-on-scroll';
-import "animate.css/animate.min.css";
+import Image from 'next/image';
+import Reveal from './Reveal';
+
+const CASE_STUDIES = [
+  {
+    name: 'Commercial Bay',
+    blurb: "Our work with Commercial Bay to become Auckland's top food & retail precinct.",
+    image: '/images/case-retail.jpg',
+  },
+  {
+    name: 'Christopher Esber',
+    blurb: 'We helped Christopher develop its direct-to-customer sales channel.',
+    image: '/images/case-fashion.jpg',
+  },
+  {
+    name: 'Mina',
+    blurb: 'We helped Mina become the top-of-mind ethical option.',
+    image: '/images/case-craft.jpg',
+  },
+  {
+    name: 'Tosca & Salome',
+    blurb: 'Our work with boho-inspired boutique Tosca & Salome.',
+    image: '/images/case-street.jpg',
+  },
+  {
+    name: 'Caughley',
+    blurb: 'We helped Caughley solidify its position as top womens wear boutique.',
+    image: '/images/case-boutique.jpg',
+  },
+];
 
 const Clients = () => {
-
-    const [bgColor, setBgColor] = useState("bg-white");
-    const [off, setOff] = useState(0);
-
-    // const inputRef = useRef()
-
-    // const handleScroll = () => {
-    //     bg-blue-100
-    // }
-
-    const handleClick = (e) => {
-        console.log(e)
-    }
-
-    return (
-        <div className={` ${bgColor} flex flex-col pt-8 p-3 md:grid grid-cols-2 border-blue-800 border-b-2`}>
-            <div className="flex flex-col border-b md:border-b-0 border-blue-800 md:border-blue-800  md:border-r-2 md:h-screen md:sticky md:top-0 md:grid grid-rows-2 md:p-6">
-                <div>
-                    <h1 className="text-2xl text-blue-800 font-serif font-thin">We take a bird’s eye view of digital marketing, operating as an extension of your team</h1>
-                    {/* <p><button onClick={handleClick}>Try it</button></p>
-                    <p>offsetTop is: {off}</p> */}
-                </div>
-
-                <div className="flex text-blue-800 py-12 pb-20 justify-between w-10/12 md:w-9/12">
-                    <u href="#" className="text-lg font-bold">How we help</u>
-                    <u href="#" className="text-lg font-bold">Our Clients</u>
-                </div>
-            </div>
-
-            <div className="flex flex-col ml-auto w-9/12 md:w-8/12 pt-10">
-                <ScrollAnimation animateIn='animate__zoomIn'
-                    animateOut='animate__zoomOut'>
-                    <div className="pb-24 pt-14 space-y-5">
-                        <Image 
-                            src="https://mk0pilotjps46rl7iol.kinstacdn.com/wp-content/uploads/2021/06/Pilot_Client_Commercial-Bay-826x1024-2-768x952.jpg"
-                            layout="responsive"
-                            width="70"
-                            height="80"
-                        />
-                        <div className="flex flex-col text-center items-center text-blue-800 md">
-                            <h1 className="text-lg font-bold">Commercial Bay</h1>
-                            <p className="font-serif font-thin">Our work with Commercial Bay to become Auckland's top food & retail precinct.</p>
-                        </div>
-                    </div>
-                </ScrollAnimation>
-                <ScrollAnimation animateIn='animate__zoomIn'
-                    animateOut='animate__zoomOut'>
-                    <div className="pb-24 space-y-5">
-                        <Image 
-                            src="https://mk0pilotjps46rl7iol.kinstacdn.com/wp-content/uploads/2021/06/Christopher-Esber-1-826x1024-1.jpg"
-                            layout="responsive"
-                            width="70"
-                            height="80"
-                        />
-                        <div className="flex flex-col text-center items-center text-blue-800">
-                            <h1 className="text-lg font-bold">Christopher Esber</h1>
-                            <p className="font-serif font-thin">We helped Christopher develop its direct-to-customer sales channel.</p>
-                        </div>
-                    </div>
-                </ScrollAnimation>
-                <ScrollAnimation animateIn='animate__zoomIn'
-                    animateOut='animate__zoomOut'>
-                    <div className="pb-24 space-y-5">
-                        <Image 
-                            src="https://mk0pilotjps46rl7iol.kinstacdn.com/wp-content/uploads/2021/06/Mina_1-826x1024-1.jpg"
-                            layout="responsive"
-                            width="70"
-                            height="80"
-                        />
-                        <div className="flex flex-col text-center items-center text-blue-800">
-                            <h1 className="text-lg font-bold">Mina</h1>
-                            <p className="font-serif font-thin">We helped Mina become top-of-mind ethical option.</p>
-                        </div>
-                    </div>
-                </ScrollAnimation>
-                <ScrollAnimation animateIn='animate__zoomIn'
-                    animateOut='animate__zoomOut'>
-                    <div className="pb-24 space-y-5">
-                        <Image 
-                            src="https://mk0pilotjps46rl7iol.kinstacdn.com/wp-content/uploads/2021/06/Pilot-Client_Tosca-Salome-826x1024-2.jpg"
-                            layout="responsive"
-                            width="70"
-                            height="80"
-                        />
-                        <div className="flex flex-col text-center items-center text-blue-800">
-                            <h1 className="text-lg font-bold">Tosca & Salome</h1>
-                            <p className="font-serif font-thin">Our work with boho-inspired boutique Tosca & Salome.</p>
-                        </div>
-                    </div>
-                </ScrollAnimation>
-                <ScrollAnimation animateIn='animate__zoomIn'
-                    animateOut='animate__zoomOut'>
-                    <div className="pb-10 md:pb-0 space-y-5">
-                        <Image 
-                            src="https://mk0pilotjps46rl7iol.kinstacdn.com/wp-content/uploads/2021/06/Caughley-1-826x1024-1.jpg"
-                            layout="responsive"
-                            width="70"
-                            height="80"
-                        />
-                        <div className="flex flex-col text-center items-center text-blue-800">
-                            <h1 className="text-lg font-bold">Caughley</h1>
-                            <p className="font-serif font-thin">We helped Caughley solidify its position as top womens wear boutique.</p>
-                        </div>
-                    </div>
-                </ScrollAnimation>
-            </div>
+  return (
+    <section
+      id="clients"
+      className="cover-card relative z-10 -mt-[45vh] bg-paper shadow-[0_-40px_80px_-60px_rgba(10,22,80,0.45)] md:-mt-[100vh]"
+      aria-label="Our clients"
+    >
+      {/* Top edge carries the blue/red signature pair from the intro */}
+      <div className="shell">
+        <div className="rule-pair" aria-hidden>
+          <span />
+          <span />
         </div>
-    )
-}
+      </div>
+      <div className="shell grid gap-10 py-20 md:grid-cols-12 md:py-28">
+      {/* Sticky intro column */}
+      <div className="md:col-span-7">
+        <div className="md:sticky md:top-32">
+          <Reveal>
+            <p className="eyebrow">Our clients</p>
+            <h2 className="display balance max-w-xl text-4xl text-ink md:text-5xl">
+              We take a bird&rsquo;s eye view of digital marketing, operating as an extension of your
+              team
+            </h2>
+            <div className="mt-12 flex gap-10">
+              <a
+                href="#clients"
+                className="text-sm font-bold uppercase tracking-[0.2em] text-ink underline decoration-flame decoration-2 underline-offset-8 hover:text-flame"
+              >
+                How we help
+              </a>
+              <a
+                href="#articles"
+                className="text-sm font-bold uppercase tracking-[0.2em] text-ink underline decoration-flame decoration-2 underline-offset-8 hover:text-flame"
+              >
+                Our clients
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </div>
 
+      {/* Case studies column */}
+      <div className="md:col-span-5">
+        <ul className="space-y-24">
+          {CASE_STUDIES.map((cs, i) => (
+            <Reveal as="li" key={cs.name} delay={i % 2 ? 100 : 0}>
+              <a href="#clients" className="group block" aria-label={`Case study: ${cs.name}`}>
+                <div className="zoom-img relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src={cs.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="mt-6 text-center text-lg font-bold text-ink group-hover:text-flame">
+                  {cs.name}
+                </h3>
+                <p className="mx-auto mt-2 max-w-sm text-center font-serif text-lg leading-relaxed text-ink">
+                  {cs.blurb}
+                </p>
+              </a>
+            </Reveal>
+          ))}
+        </ul>
+      </div>
+      </div>
+    </section>
+  );
+};
 
-
-export default Clients
+export default Clients;
