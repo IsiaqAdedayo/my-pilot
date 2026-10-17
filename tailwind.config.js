@@ -1,23 +1,24 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './pages/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     extend: {
-      margin:{
-        "md": '-336px',
-        "mlc": "36%",
+      colors: {
+        ink: '#0A1650', // deep pilot blue
+        flame: '#E4002B', // signature red
+        paper: '#FCFBF8', // warm off-white
       },
-      inset:{
-        "cus": "85%"
+      fontFamily: {
+        serif: ['var(--font-serif)', 'Georgia', 'Times New Roman', 'serif'],
+        sans: ['var(--font-sans)', 'Helvetica Neue', 'system-ui', 'sans-serif'],
       },
-      height:{
-        "cusHe": "83.3vh"
-      }
+      transitionTimingFunction: {
+        luxe: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }
