@@ -21,7 +21,6 @@ const Banner = () => {
               }}
               aria-hidden
             />
-
             <div className="shell relative grid h-full grid-rows-[auto_1fr] gap-6 md:grid-cols-12 md:grid-rows-none md:gap-6">
               {/* Headline column */}
               <div className="flex flex-col justify-center md:col-span-7">
